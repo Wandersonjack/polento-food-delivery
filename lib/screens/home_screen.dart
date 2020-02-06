@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:polento_food_delivery/components/search_textfield_component.dart';
+import 'package:polento_food_delivery/components/recent_orders.dart';
+import 'package:polento_food_delivery/components/search_textfield.dart';
 import 'package:polento_food_delivery/data/data.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,6 +13,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
         leading: IconButton(
           icon: Icon(Icons.account_circle),
           onPressed: () {},
@@ -37,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView(
         children: <Widget>[
           SearchComponent(),
+          RecentOrders(),
         ],
       ),
     );

@@ -11,6 +11,7 @@ class SearchComponent extends StatelessWidget {
             borderRadius: BorderRadius.circular(8),
             borderSide: BorderSide(width: 0.8),
           ),
+          fillColor: Colors.white,
           prefixIcon: Icon(
             Icons.search,
             size: 30,
