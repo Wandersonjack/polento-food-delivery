@@ -20,4 +20,7 @@ final SizedBox spaceH4 = SizedBox(
 final SizedBox spaceH8 = SizedBox(
   height: 8,
 );
+final SizedBox spaceH16 = SizedBox(
+  height: 16,
+);
 
