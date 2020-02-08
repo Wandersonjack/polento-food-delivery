@@ -14,9 +14,91 @@ class RestaurantScreen extends StatefulWidget {
 }
 
 class _RestaurantScreenState extends State<RestaurantScreen> {
-  _buildMenuItem(Food menuItem){
-    return Center(child: Text(menuItem.name),);
+  _buildMenuItem(Food menuItem) {
+    return Center(
+      child: Stack(
+        alignment: Alignment.center,
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.all(10),
+            height: 175,
+            width: 175,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              image: DecorationImage(
+                image: AssetImage(menuItem.imageUrl),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          //TODO: CLEAN UP CODE ADDING THE BOX DECORATION TO CONST
+          Container(
+            height: 175,
+            width: 175,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Colors.black.withOpacity(0.3),
+                  Colors.black87.withOpacity(0.3),
+                  Colors.black54.withOpacity(0.3),
+                  Colors.black38.withOpacity(0.3),
+                ],
+                stops: [
+                  0.1,
+                  0.5,
+                  0.7,
+                  0.9,
+                ],
+              ),
+            ),
+          ),
+          Positioned(
+            bottom: 65,
+            child: Column(
+              children: <Widget>[
+                Text(
+                  menuItem.name,
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+                Text(
+                  '\$${menuItem.price}',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            bottom: 10,
+            right: 10,
+            child: Container(
+              height: 50,
+              width: 50,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+                color: Theme.of(context).primaryColor,
+              ),
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.add),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,10 +191,10 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
           Expanded(
             child: GridView.count(
               crossAxisCount: 2,
-              children: List.generate(widget.restaurant.menu.length, (index){
+              children: List.generate(widget.restaurant.menu.length, (index) {
                 Food food = widget.restaurant.menu[index];
                 return Center(
-                  child:_buildMenuItem(food),
+                  child: _buildMenuItem(food),
                 );
               }),
             ),

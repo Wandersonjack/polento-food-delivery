@@ -44,7 +44,7 @@ class RecentOrders extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Text(
-                            order.food.name + 'food food I love food',
+                            order.food.name,
                             style: kBody1,
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -87,7 +87,7 @@ class RecentOrders extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 20),
           child: Text(
             'Recent Orders',
-            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            style:kDisplay2,
           ),
         ),
         Container(

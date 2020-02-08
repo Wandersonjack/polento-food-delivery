@@ -4,6 +4,7 @@ import 'package:polento_food_delivery/components/recent_orders.dart';
 import 'package:polento_food_delivery/components/search_textfield.dart';
 import 'package:polento_food_delivery/data/data.dart';
 import 'package:polento_food_delivery/model/restaurant.dart';
+import 'package:polento_food_delivery/screens/cart_screen.dart';
 import 'package:polento_food_delivery/screens/restaurant_screen.dart';
 import 'package:polento_food_delivery/utilities/constants.dart';
 
@@ -94,10 +95,12 @@ class _HomeScreenState extends State<HomeScreen> {
           icon: Icon(Icons.account_circle),
           onPressed: () {},
         ),
-        title: Text('Polento'),
+        title: Text('Polento', style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),),
         actions: <Widget>[
           FlatButton(
-              onPressed: () {},
+              onPressed: () =>Navigator.push(context, MaterialPageRoute(
+                builder:(context) => CartScreen(),
+              ),),
               child: Row(
                 children: <Widget>[
                   Icon(Icons.shopping_cart),
